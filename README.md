@@ -1,12 +1,10 @@
 # react-codejar
 
+> [![NPM](https://img.shields.io/npm/v/react-codejar.svg)](https://www.npmjs.com/package/react-codejar) React wrapper around the [CodeJar](https://medv.io/codejar/) library 
+
 # This library is not working and should not be used for now
 It has a bug I still didn't manage to fix where the component re-renders when the text inside the textarea changes and the cursor resets it's position. 
 If anyone wants to help solving it the issue is [this one](https://github.com/guilhermelimak/react-codejar/issues/2)
-
-> React wrapper around the [CodeJar](https://medv.io/codejar/) library
-
-[![NPM](https://img.shields.io/npm/v/react-codejar.svg)](https://www.npmjs.com/package/react-codejar)
 
 ## Install
 
