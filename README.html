@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  /><meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'><style> body { box-sizing: border-box; max-width: 740px; width: 100%; margin: 40px auto; padding: 0 10px; } </style><script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script><script>document.addEventListener('DOMContentLoaded', () => { document.body.classList.add('markdown-body'); document.querySelectorAll('pre[lang] > code').forEach((code) => { code.classList.add(code.parentElement.lang); }); document.querySelectorAll('pre > code').forEach((code) => { hljs.highlightBlock(code); }); });</script>
+</head>
+
+<body>
+
+<h1 id="react-codejar">react-codejar</h1>
+<blockquote>
+<p>React wrapper around the <a href="https://medv.io/codejar/">CodeJar</a> library</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/react-codejar"><img src="https://img.shields.io/npm/v/react-codejar.svg" alt="NPM" /></a></p>
+<h2 id="install">Install</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">npm</span> install --save react-codejar</span></code></pre></div>
+<h2 id="usage">Usage</h2>
+<pre class="tsx"><code>import React, { Component, useState } from &quot;react&quot;;
+
+// You can choose to use the component or the hook
+import { ReactCodeJar, useCodeJar } from &quot;react-codejar&quot;;
+
+const highlight = editor =&gt; {
+  let code = editor.textContent;
+  code = code.replace(/\((\w+?)(\b)/g, &#39;(&lt;font color=&quot;#8a2be2&quot;&gt;$1&lt;/font&gt;$2&#39;);
+  editor.innerHTML = code;
+};
+
+const ComponentExample = () =&gt; {
+  const [code, setCode] = useState(&#39;(format t &quot;lisp example&quot;)&#39;);
+
+  return (
+    &lt;ReactCodeJar
+      code={code} // Initial code value
+      onUpdate={setCode} // Update the text
+      highlight={highlight} // Highlight function, receive the editor
+    /&gt;
+  );
+};
+
+const HookExample = () =&gt; {
+  const [code, setCode] = useState(&#39;(format t &quot;lisp example&quot;)&#39;);
+
+  const editorRef = useCodeJar({
+    code, // Initial code value
+    onUpdate: setCode, // Update the text
+    highlight // Highlight function, receive the editor
+  });
+
+  return &lt;div ref={editorRef}&gt;&lt;/div&gt;;
+};</code></pre>
+<h2 id="license">License</h2>
+<p>GPL3 © <a href="https://github.com/guilhermelimak">guilhermelimak</a></p>
+
+</body>
+</html>

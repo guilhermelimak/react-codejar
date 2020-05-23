@@ -1,5 +1,6 @@
 import * as React from "react";
 import { CodeJar } from "@medv/codejar";
+import { getCaretOffset, setCurrentCursorPosition } from "./caret";
 
 interface Props {
   highlight: (e: HTMLElement) => {};
@@ -11,26 +12,40 @@ interface Props {
 
 export const useCodeJar = (props: Props) => {
   const editorRef = React.useRef<HTMLDivElement>(null);
-  let jar: CodeJar;
+  const jar = React.useRef<CodeJar | null>(null);
+  const [cursorOffset, setCursorOffset] = React.useState(0);
 
   React.useEffect(() => {
     if (!editorRef.current) return;
 
-    jar = new CodeJar(editorRef.current, props.highlight, props.options);
-    jar.onUpdate(props.onUpdate);
-    return () => jar.destroy();
-  }, [editorRef.current]);
+    jar.current = new CodeJar(
+      editorRef.current,
+      props.highlight,
+      props.options
+    );
+
+    jar.current.updateCode(props.code);
+
+    jar.current.onUpdate(txt => {
+      if (!editorRef.current) return;
+
+      setCursorOffset(getCaretOffset(editorRef.current));
+      props.onUpdate(txt);
+    });
+
+    return () => jar.current!.destroy();
+  }, []);
 
   React.useEffect(() => {
-    if (!jar) return;
-
-    jar.updateCode(props.code);
+    if (!jar.current || !editorRef.current) return;
+    jar.current.updateCode(props.code);
+    setCurrentCursorPosition(editorRef.current, cursorOffset);
   }, [props.code]);
 
   React.useEffect(() => {
-    if (!jar || !props.options) return;
+    if (!jar.current || !props.options) return;
 
-    jar.updateOptions(props.options);
+    jar.current.updateOptions(props.options);
   }, [props.options]);
 
   return editorRef;
@@ -38,5 +53,6 @@ export const useCodeJar = (props: Props) => {
 
 export const ReactCodeJar: React.FC<Props> = props => {
   const editorRef = useCodeJar(props);
+
   return <div style={props.style} ref={editorRef}></div>;
 };
