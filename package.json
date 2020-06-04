@@ -52,6 +52,6 @@
     "dist"
   ],
   "dependencies": {
-    "@medv/codejar": "^1.0.0"
+    "codejar": "^3.0.0"
   }
 }

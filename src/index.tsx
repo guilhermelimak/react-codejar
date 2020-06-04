@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CodeJar } from "@medv/codejar";
+import { CodeJar } from "codejar";
 import { getCaretOffset, setCurrentCursorPosition } from "./caret";
 
 interface Props {
@@ -18,11 +18,7 @@ export const useCodeJar = (props: Props) => {
   React.useEffect(() => {
     if (!editorRef.current) return;
 
-    jar.current = new CodeJar(
-      editorRef.current,
-      props.highlight,
-      props.options
-    );
+    jar.current = CodeJar(editorRef.current, props.highlight, props.options);
 
     jar.current.updateCode(props.code);
 
