@@ -1137,11 +1137,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@medv/codejar@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@medv/codejar/-/codejar-1.0.0.tgz#5665649c60f3a24de5e09706564c2bf6ef17baa2"
-  integrity sha512-deAET+w8ibn+YMttXEeigKzGd2gThXL0sfka0Q4leWGwUoaHZHyZhw2LmX3sjC5gqE1QfEkLvVaoCSOas2R6ZA==
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -2712,6 +2707,11 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+codejar@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/codejar/-/codejar-3.2.3.tgz#341e7a16798233b410cc82a8ef2f8acbf880e788"
+  integrity sha512-zgWotUNz9c+nvYtGxmhwu4RxK1QWPRJvCjGk6LNm7pSwXEaEkY8Q6CQs8uZTNvoGyBVtKrt7C24OdXTyNZ17Xg==
 
 collection-visit@^1.0.0:
   version "1.0.0"

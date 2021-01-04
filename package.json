@@ -52,6 +52,6 @@
     "dist"
   ],
   "dependencies": {
-    "codejar": "^3.0.0"
+    "codejar": "^3.2.3"
   }
 }

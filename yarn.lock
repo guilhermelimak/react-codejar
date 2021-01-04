@@ -2827,10 +2827,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codejar@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/codejar/-/codejar-3.0.0.tgz#4db0d96ca795d6c8478e2ff08c36d2dadf2aea37"
-  integrity sha512-RlsBpAFvWE7ZDLlpBzGeIQxVtZKGGOPxUIRVuLA/tz/2mmxjz5dZ3jpBJLlXCPN5qj3GAO2lgZor1T9x3MXLXw==
+codejar@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/codejar/-/codejar-3.2.3.tgz#341e7a16798233b410cc82a8ef2f8acbf880e788"
+  integrity sha512-zgWotUNz9c+nvYtGxmhwu4RxK1QWPRJvCjGk6LNm7pSwXEaEkY8Q6CQs8uZTNvoGyBVtKrt7C24OdXTyNZ17Xg==
 
 collection-visit@^1.0.0:
   version "1.0.0"
