@@ -1,5 +1,6 @@
 import * as React from "react";
 import { CodeJar } from "codejar";
+import { withLineNumbers } from "codejar/linenumbers";
 import { getCaretOffset, setCurrentCursorPosition } from "./caret";
 
 type CodejarOptions = {
@@ -19,6 +20,7 @@ interface Props {
   code: string;
   style: React.CSSProperties;
   onUpdate: (code: string) => void;
+  lineNumbers?: boolean;
 }
 
 export const useCodeJar = (props: Props) => {
@@ -29,7 +31,11 @@ export const useCodeJar = (props: Props) => {
   React.useEffect(() => {
     if (!editorRef.current) return;
 
-    jar.current = CodeJar(editorRef.current, props.highlight, props.options);
+    const highlight = props.lineNumbers
+      ? withLineNumbers(props.highlight)
+      : props.highlight;
+
+    jar.current = CodeJar(editorRef.current, highlight, props.options);
 
     jar.current.updateCode(props.code);
 

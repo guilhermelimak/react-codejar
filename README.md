@@ -1,12 +1,15 @@
 # react-codejar
 
-> [![NPM](https://img.shields.io/npm/v/react-codejar.svg)](https://www.npmjs.com/package/react-codejar) React wrapper around the [CodeJar](https://medv.io/codejar/) library 
+> [![NPM](https://img.shields.io/npm/v/react-codejar.svg)](https://www.npmjs.com/package/react-codejar) React wrapper around the [CodeJar](https://medv.io/codejar/) library
 
 ## Install
 
 ```bash
 npm install --save react-codejar
 ```
+
+## Features
+You can customize codejar by passing the options prop, it also have a lineNumbers prop that will use codejar's `withLineNumbers` for you.
 
 ## Usage
 
@@ -30,6 +33,7 @@ const ComponentExample = () => {
       code={code} // Initial code value
       onUpdate={setCode} // Update the text
       highlight={highlight} // Highlight function, receive the editor
+      lineNumbers={true} // Show line numbers
     />
   );
 };
@@ -40,7 +44,8 @@ const HookExample = () => {
   const editorRef = useCodeJar({
     code, // Initial code value
     onUpdate: setCode, // Update the text
-    highlight // Highlight function, receive the editor
+    highlight, // Highlight function, receive the editor
+    lineNumbers: true // Show line numbers
   });
 
   return <div ref={editorRef}></div>;

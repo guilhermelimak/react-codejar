@@ -23,6 +23,7 @@ const hooksCode = `
   const editorRef = useCodeJar({
     code,
     onUpdate,
+    lineNumbers: true,
     highlight
   });
 
@@ -37,21 +38,18 @@ const hooksCode = `
   );`;
 
 const componentCode = `
-  const editorRef = useCodeJar({
-    code,
-    onUpdate,
-    highlight
-  });
-
   return (
     <div>
-      <h5>Using hooks: </h5>
-      <div ref={editorRef}></div>
-
       <h5>Using component:</h5>
-      <ReactCodeJar code={code} onUpdate={onUpdate} highlight={highlight} />
+      <ReactCodeJar
+        lineNumbers={true}
+        code={code}
+        onUpdate={onUpdate}
+        highlight={highlight}
+      />
     </div>
-  );`;
+  );
+`;
 
 const highlight = editor => {
   const text = editor.textContent;
@@ -68,15 +66,17 @@ const Hook = () => {
 
   const editorRef = useCodeJar({
     code,
+    lineNumbers: true,
     onUpdate,
     highlight
   });
 
   return (
     <div>
-      <h5>Using hooks: </h5>
+      <h4>Using hooks: </h4>
       <div ref={editorRef}></div>
       <button onClick={() => onUpdate(example(componentCode))}>Reset</button>
+      <h5>Resulting code</h5>
       <pre>{code}</pre>
     </div>
   );
@@ -87,9 +87,15 @@ const Component = () => {
 
   return (
     <div>
-      <h5>Using component:</h5>
-      <ReactCodeJar code={code} onUpdate={onUpdate} highlight={highlight} />
+      <h4>Using component:</h4>
+      <ReactCodeJar
+        lineNumbers={true}
+        code={code}
+        onUpdate={onUpdate}
+        highlight={highlight}
+      />
       <button onClick={() => onUpdate(example(componentCode))}>Reset</button>
+      <h5>Resulting code</h5>
       <pre>{code}</pre>
     </div>
   );
@@ -97,10 +103,12 @@ const Component = () => {
 
 const App = () => {
   return (
-    <>
+    <div style={{ width: "80%", margin: "auto" }}>
+      <h1>React codejar examples</h1>
       <Hook />
+      <hr />
       <Component />
-    </>
+    </div>
   );
 };
 
