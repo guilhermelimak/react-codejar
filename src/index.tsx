@@ -2,9 +2,20 @@ import * as React from "react";
 import { CodeJar } from "codejar";
 import { getCaretOffset, setCurrentCursorPosition } from "./caret";
 
+type CodejarOptions = {
+  tab: string;
+  indentOn: RegExp;
+  spellcheck: boolean;
+  catchTab: boolean;
+  preserveIdent: boolean;
+  history: boolean;
+  window: Window;
+  addClosing: boolean;
+};
+
 interface Props {
   highlight: (e: HTMLElement) => {};
-  options?: { tab: string };
+  options?: Partial<CodejarOptions>;
   code: string;
   style: React.CSSProperties;
   onUpdate: (code: string) => void;
