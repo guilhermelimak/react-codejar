@@ -15,7 +15,7 @@ type CodejarOptions = {
 };
 
 interface Props {
-  highlight: (e: HTMLElement) => {};
+  highlight: (e: HTMLElement) => void;
   options?: Partial<CodejarOptions>;
   code: string;
   style: React.CSSProperties;
