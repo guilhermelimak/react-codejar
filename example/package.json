@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@types/prismjs": "^1.16.0",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.27.0",
     "react": "link:../node_modules/react",
     "react-codejar": "link:..",
     "react-dom": "link:../node_modules/react-dom",
